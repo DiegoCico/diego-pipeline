@@ -232,7 +232,7 @@ public class Build {
 
     // Simulate running tests with error checking
     private boolean simulateTesting() {
-        System.out.println("Running tests...");
+        System.out.println("Running build...");
 
         for (String file : sourceFiles) {
             if (file.contains("Test")) {

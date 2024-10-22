@@ -28,12 +28,12 @@ Ensure you have the following installed:
 - JUnit for running tests
 
 ### Clone the Repository
-```bash
+bash
 git clone https://github.com/yourusername/yourrepository.git
 cd yourrepository
 ### Configuring `config.properties`
 Update the `config.properties` file with the required values:
-```properties
+properties
 # GitHub credentials
 github.username=your_github_username
 github.token=your_github_token  # Personal access token
@@ -43,18 +43,19 @@ github.repo_url=https://github.com/yourusername/yourrepository.git
 scripts=YourMainClass.java
 tests=TestClass1,TestClass2
 
-```markdown
+markdown
+
 1. **Build Stage**: Compile the Java source files.
 2. **Test Stage**: Run unit tests and show a progress bar for test completion.
 3. **Validation Stage**: Execute the program and ask for user confirmation.
 4. **Deploy Stage**: Automatically push changes to GitHub.
 
 To run the pipeline, execute the main entry point:
-```bash
+
 mvn clean install  # For Maven projects
 java -cp target/classes stages.App
 
-```markdown
+
 ### Build Stage
 The `Build` class handles compiling source files and checking for errors in various file types (e.g., Java, Python, JavaScript). It simulates the build process and provides colored terminal output to indicate success or failure.
 
@@ -70,7 +71,7 @@ To deploy the project to GitHub:
 1. Ensure your GitHub username and personal access token are correctly configured in `config.properties`.
 2. Run the pipeline, and the final step will automatically push changes to your GitHub repository.
 
-```java
+java
 // Example for manually triggering the deployment stage
 Deploy deployStage = new Deploy();
 boolean deploySuccess = deployStage.deploy();

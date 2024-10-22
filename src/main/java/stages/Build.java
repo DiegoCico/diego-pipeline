@@ -7,6 +7,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * The Build class simulates the build process of a project.
+ * It handles compilation, testing, and packaging of source files
+ * defined in a configuration file.
+ */
 public class Build {
 
     // ANSI escape codes for colored output
@@ -19,7 +24,10 @@ public class Build {
     private static final String CONFIG_FILE = "config.properties";
     private Properties properties = new Properties();
 
-    // Constructor to load the script names from config.properties
+    /**
+     * Constructor to initialize the Build object.
+     * It loads the script names from the config.properties file.
+     */
     public Build() {
         loadConfig();
         String scripts = properties.getProperty("scripts");
@@ -31,7 +39,11 @@ public class Build {
         }
     }
 
-    // Simulate the entire build process with progress bar and colored text
+    /**
+     * Simulates the entire build process.
+     * This includes compilation, testing, and packaging.
+     * @return true if the build is successful, false otherwise.
+     */
     public boolean execute() {
         System.out.println("Executing build stage...");
 
@@ -60,7 +72,10 @@ public class Build {
         return true;
     }
 
-    // Simulate compilation/execution of source files with error checking
+    /**
+     * Simulates the compilation and execution of source files.
+     * @return true if compilation and execution are successful, false otherwise.
+     */
     private boolean simulateCompilation() {
         System.out.println("Compiling/Running source files...");
 
@@ -129,7 +144,7 @@ public class Build {
         return true;
     }
 
-    // Simulate various language compilation or execution methods
+    // Simulated compilation/execution methods for various programming languages
     private boolean simulateJavaCompilation(String file) {
         System.out.println("Compiling Java file: " + file);
         return !file.contains("Error");
@@ -230,7 +245,10 @@ public class Build {
         return !file.contains("Error");
     }
 
-    // Simulate running tests with error checking
+    /**
+     * Simulates the testing process.
+     * @return true if all tests pass, false otherwise.
+     */
     private boolean simulateTesting() {
         System.out.println("Running build...");
 
@@ -245,7 +263,10 @@ public class Build {
         return true;
     }
 
-    // Simulate packaging the project into a JAR file with error checking
+    /**
+     * Simulates packaging the project into a JAR file.
+     * @return true if packaging is successful, false otherwise.
+     */
     private boolean simulatePackaging() {
         System.out.println("Packaging the project into a JAR file...");
 
@@ -259,7 +280,9 @@ public class Build {
         return true;
     }
 
-    // Load the properties from config.properties
+    /**
+     * Loads properties from the config.properties file.
+     */
     private void loadConfig() {
         try (InputStream input = getClass().getClassLoader().getResourceAsStream(CONFIG_FILE)) {
             if (input == null) {
@@ -272,17 +295,26 @@ public class Build {
         }
     }
 
-    // Helper method to print in green and bold
+    /**
+     * Prints a message in green color and bold text.
+     * @param message The message to print.
+     */
     private void printInGreen(String message) {
         System.out.println(ANSI_BOLD + ANSI_GREEN + message + ANSI_RESET);
     }
 
-    // Helper method to print in red and bold
+    /**
+     * Prints a message in red color and bold text.
+     * @param message The message to print.
+     */
     private void printInRed(String message) {
         System.out.println(ANSI_BOLD + ANSI_RED + message + ANSI_RESET);
     }
 
-    // Simulate a status bar based on the percentage of progress
+    /**
+     * Simulates a progress bar for the build process.
+     * @param progress The percentage of the build process completed.
+     */
     private void updateProgressBar(int progress) {
         final int totalBars = 50; // Number of bars in the progress bar
         int filledBars = (int) ((progress / 100.0) * totalBars);

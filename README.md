@@ -27,18 +27,6 @@ Ensure you have the following installed:
 - Git
 - JUnit for running tests
 
-### Clone the Repository
-bash
-git clone https://github.com/yourusername/yourrepository.git
-cd yourrepository
-### Configuring `config.properties`
-Update the `config.properties` file with the required values:
-properties
-# GitHub credentials
-github.username=your_github_username
-github.token=your_github_token  # Personal access token
-github.repo_url=https://github.com/yourusername/yourrepository.git
-
 # List of scripts to compile and tests to run
 scripts=YourMainClass.java
 tests=TestClass1,TestClass2
